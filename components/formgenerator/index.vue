@@ -113,13 +113,9 @@ export default {
 
         console.log('form valid');
 
-
       } else {
 
-
         console.log('form not valid')
-
-
 
       }
 
