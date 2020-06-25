@@ -1,0 +1,18 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    outline: 0;
+  }
+  html,
+  body {
+    font-weight: 400;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    ::selection {
+      background-color: black;
+      color: white;
+    }
+  }

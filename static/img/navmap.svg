@@ -1,0 +1,24 @@
+<svg width="110" height="110" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="112" width="112" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse ry="5" rx="5" id="svg_1" cy="25.573381" cx="55.86522" stroke-width="0" stroke="#000" fill="#eeeeee"/>
+  <ellipse ry="5" rx="5" id="svg_4" cy="58.451889" cx="95.088694" stroke-width="0" stroke="#000" fill="#eeeeee"/>
+  <ellipse ry="5" rx="5" id="svg_5" cy="38.551741" cx="78.216834" stroke-width="0" stroke="#000" fill="#ff0000"/>
+  <line transform="rotate(9.830998420715332 69.34829711914058,47.92499542236328) " stroke="#eeeeee" stroke-width="3" stroke-linecap="null" stroke-linejoin="null" id="svg_6" y2="53.909456" x2="65.598988" y1="41.94053" x1="73.097583" fill="none"/>
+  <ellipse ry="5" rx="5" id="svg_7" cy="26.799118" cx="101.361569" stroke-width="0" stroke="#000" fill="#eeeeee"/>
+  <ellipse ry="5" rx="5" id="svg_8" cy="57.298252" cx="60.551848" stroke-width="0" stroke="#000" fill="#eeeeee"/>
+  <ellipse ry="5" rx="5" id="svg_9" cy="12.81133" cx="78.216834" stroke-width="0" stroke="#000" fill="#eeeeee"/>
+  <line transform="rotate(-71.72025299072266 86.7248764038086,48.429706573486335) " stroke="#eeeeee" stroke-width="3" stroke-linecap="null" stroke-linejoin="null" id="svg_10" y2="54.414171" x2="82.975565" y1="42.445245" x1="90.47416" fill="none"/>
+  <line transform="rotate(-149.0261688232422 89.82525634765624,32.78357696533203) " stroke="#eeeeee" stroke-width="3" stroke-linecap="null" stroke-linejoin="null" id="svg_11" y2="38.768041" x2="86.075951" y1="26.799115" x1="93.574545" fill="none"/>
+  <line transform="rotate(147.9326629638672 78.2168502807617,25.645479202270508) " stroke="#eeeeee" stroke-width="3" stroke-linecap="null" stroke-linejoin="null" id="svg_12" y2="31.629945" x2="74.467532" y1="19.661019" x1="81.966126" fill="none"/>
+  <line transform="rotate(88.69324493408203 66.82472991943358,32.27886199951172) " stroke="#eeeeee" stroke-width="3" stroke-linecap="null" stroke-linejoin="null" id="svg_13" y2="38.263327" x2="63.075419" y1="26.294401" x1="70.574013" fill="none"/>
+ </g>
+</svg>
