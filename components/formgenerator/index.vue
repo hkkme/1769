@@ -114,13 +114,9 @@ export default {
             return response.json();
           }).then(function(data) {
             if(data.success) {
-
               console.log('success > data', data);
-
             } else {
-
               console.log('failed');
-
             }
           });
 
