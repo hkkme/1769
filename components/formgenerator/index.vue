@@ -113,35 +113,34 @@ export default {
 
         console.log('form valid');
 
+
+
+        fetch('/.netlify/functions/formhandler', {
+            method: 'post',
+            body: JSON.stringify({
+              test: 'test1'
+            })
+          }).then(function(response) {
+            return response.json();
+          }).then(function(data) {
+            if(data.success) {
+
+              console.log('success > data', data);
+
+            } else {
+
+              console.log('failed');
+
+            }
+          });
+
+
+
       } else {
 
         console.log('form not valid')
 
       }
-
-
-
-      // console.log('handleSubmit');
-
-      // fetch('/.netlify/functions/formhandler', {
-      //     method: 'post',
-      //     body: JSON.stringify({
-      //       test: 'test1'
-      //     })
-      //   }).then(function(response) {
-      //     return response.json();
-      //   }).then(function(data) {
-      //     if(data.success) {
-
-      //       console.log('success');
-
-      //     } else {
-
-      //       console.log('failed');
-
-      //     }
-      //   });
-
 
     }
   }
