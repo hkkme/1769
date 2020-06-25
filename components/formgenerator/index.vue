@@ -72,38 +72,30 @@ export default {
     },
     verifyFormValues() {
       const missing = [];
+      let emailValid = false;
       let formVerified = false;
 
       this.formItems.map(formItem => {
 
-
-        console.log(formItem)
-
-        if(this.formValues[formItem.id] === 'email' && ValidationService.validateEmail(formItem.value)) {
-
-          console.log('email not valid');
+        if(formItem.id === 'email' && ValidationService.validateEmail(this.formValues[formItem.id])) {
+          emailValid = true;
         }
-
-
 
         if(formItem.required && (this.formValues[formItem.id] === '' || this.formValues[formItem.id] === undefined)) {
           missing.push(formItem.label);
         }
+
       })
 
       if(missing.length > 0) {
         this.message = { text: `Form incomplete: ${missing.join(', ')}`, type: 'warn' }
+      } else if (emailValid === false) {
+        this.message = { text: `Email not valid!`, type: 'warn' }
+
       } else {
         formVerified = true;
         this.message = null;
       }
-
-
-
-
-
-
-
 
       return formVerified;
     },
@@ -112,8 +104,6 @@ export default {
       if(this.verifyFormValues()) {
 
         console.log('form valid');
-
-
 
         fetch('/.netlify/functions/formhandler', {
             method: 'post',
@@ -133,8 +123,6 @@ export default {
 
             }
           });
-
-
 
       } else {
 
