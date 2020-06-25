@@ -55,6 +55,9 @@ const domain = process.env.MAILGUN_DOMAIN;
 
 exports.handler = function(event, context, callback)
 {
+
+    console.log('formhanderl');
+
     const mg = mailgun({ apiKey, domain });
 
     const data = {
@@ -68,9 +71,11 @@ exports.handler = function(event, context, callback)
    mg.messages().send(data, (error, body) => {
 
         console.log('data:', data);
+        console.log('body:', body);
 
         if (error)
         {
+            console.log('error:', error)
             return console.log(error);
         }
 
