@@ -108,9 +108,12 @@ export default {
         fetch('/.netlify/functions/formhandler', {
             method: 'post',
             body: JSON.stringify({
-              test: 'test1'
+              test: 'test2'
             })
           }).then(function(response) {
+
+            console.log('response', response);
+
             return response.json();
           }).then(function(data) {
             if(data.success) {
