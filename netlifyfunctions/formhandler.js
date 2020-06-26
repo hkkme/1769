@@ -10,36 +10,47 @@ const domain = process.env.MAILGUN_DOMAIN;
 exports.handler = function(event, context, callback)
 {
 
-  //   console.log('formhanderl');
+    console.log('formhandler');
+    console.log('event.body', event.body);
 
-  //   const mg = mailgun({ apiKey, domain });
+    const mg = mailgun({ apiKey, domain });
 
-  //   const data = {
-  //     from: 'Name <mailgun@mail.1769.eu>',
-  //     to: 'zehnter.david@gmail.com',
-  //     subject: 'test1',
-  //     text: 'testung...',
-  //     html: 'HTML'
-  //   };
+    const text = JSON.stringify(event.body);
 
-  //  mg.messages().send(data, (error, body) => {
+    const data = {
+      from: 'Name <mailgun@mail.1769.eu>',
+      to: 'zehnter.david@gmail.com',
+      subject: '1769 form submit',
+      text,
+      html: 'HTML'
+    };
 
-  //       console.log('data:', data);
-  //       console.log('body:', body);
+   mg.messages().send(data, (error, body) => {
 
-  //       if (error)
-  //       {
-  //           console.log('error:', error)
-  //           return console.log(error);
-  //       }
+        console.log('data:', data);
+        console.log('body:', body);
 
-  //       callback(null, {
-  //           statusCode: 200,
-  //           body: "Mail sent"
-  //       });
-  //  });
+        if (error)
+        {
+            console.log('error:', error)
+            return console.log(error);
+        }
 
-  console.log('event.body', event.body);
+        callback(null, {
+            statusCode: 200,
+            body: "Mail sent"
+        });
+   })
+   .then(res => {
+     console.log(res);
+   })
+   .catch(err => {
+    console.log(err);
+   })
+
+
+
+
 
   return {
     statusCode: 200,
