@@ -2,8 +2,7 @@ const mailgun = require('mailgun-js');
 const apiKey = process.env.MAILGUN_API_KEY;
 const domain = process.env.MAILGUN_DOMAIN;
 
-exports.handler = function(event, context, callback)
-{
+exports.handler = async (event, context, callback) => {
 
     console.log('formhandler');
     console.log('event.body', event.body);
@@ -20,27 +19,24 @@ exports.handler = function(event, context, callback)
       html: 'HTML'
     };
 
-   mg.messages().send(data, (error, body) => {
+
+    const sender = await mg.messages().send(data, (error, body) => {
 
         console.log('data:', data);
         console.log('body:', body);
 
-        if (error)
-        {
+        if (error) {
             console.log('error:', error)
             return console.log(error);
         }
 
-        callback(null, {
-            statusCode: 200,
-            body: "Mail sent"
-        });
-   })
+    })
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ test: 'testing..', success: true })
-  }
+    console.log('sender', sender)
 
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ test: 'testing..', success: true })
+    }
 
 }
