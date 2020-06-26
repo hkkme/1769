@@ -107,12 +107,16 @@ export default {
 
         fetch('/.netlify/functions/formhandler', {
             method: 'post',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
             body: JSON.stringify(this.formValues)
           }).then(function(response) {
 
             console.log('response', response);
 
-            return response.text();
+            return response.json();
           }).then(function(data) {
 
 
