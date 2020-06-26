@@ -1,8 +1,3 @@
-
-
-
-
-
 const mailgun = require('mailgun-js');
 const apiKey = process.env.MAILGUN_API_KEY;
 const domain = process.env.MAILGUN_DOMAIN;
@@ -41,16 +36,6 @@ exports.handler = function(event, context, callback)
             body: "Mail sent"
         });
    })
-   .then(res => {
-     console.log(res);
-   })
-   .catch(err => {
-    console.log(err);
-   })
-
-
-
-
 
   return {
     statusCode: 200,
