@@ -103,13 +103,12 @@ export default {
 
       if(this.verifyFormValues()) {
 
-        console.log('form valid');
+
+        console.log('form submitted');
 
         fetch('/.netlify/functions/formhandler', {
             method: 'post',
-            body: JSON.stringify({
-              test: 'test2'
-            })
+            body: JSON.stringify(this.formValues)
           }).then(function(response) {
 
             console.log('response', response);
