@@ -106,35 +106,6 @@ export default {
 
         console.log('form submitted');
 
-        // axios
-        //   .post(
-        //     '/.netlify/functions/formhandler',
-        //     this.formValues,
-        //     // {
-        //     //   headers: {
-        //     //   },
-        //     // }
-        //   )
-        //   .then(res => {
-
-        //     console.log('res', res);
-
-        //     return {
-        //       statusCode: 200,
-        //       body: JSON.stringify({ success: true })
-        //     }
-        //   })
-        //   .catch(error => {
-
-        //     console.log('error', error);
-
-        //     return {
-        //       statusCode: 200,
-        //       body: JSON.stringify({ success: false })
-        //     }
-        //   }
-        // );
-
         fetch('/.netlify/functions/formhandler', {
             method: 'post',
             headers: {
