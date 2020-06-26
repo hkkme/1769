@@ -114,6 +114,11 @@ export default {
 
             return response.text();
           }).then(function(data) {
+
+
+            console.log('data', data);
+
+
             if(data.success) {
               console.log('success > data', data);
             } else {
