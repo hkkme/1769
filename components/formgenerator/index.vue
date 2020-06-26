@@ -103,7 +103,6 @@ export default {
 
       if(this.verifyFormValues()) {
 
-
         console.log('form submitted');
 
         fetch('/.netlify/functions/formhandler', {
@@ -113,7 +112,7 @@ export default {
 
             console.log('response', response);
 
-            return response.send();
+            return response.text();
           }).then(function(data) {
             if(data.success) {
               console.log('success > data', data);
