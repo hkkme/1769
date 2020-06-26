@@ -113,7 +113,7 @@ export default {
 
             console.log('response', response);
 
-            return response.json();
+            return response.send();
           }).then(function(data) {
             if(data.success) {
               console.log('success > data', data);
