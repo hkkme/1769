@@ -2,7 +2,7 @@ const mailgun = require('mailgun-js');
 const apiKey = process.env.MAILGUN_API_KEY;
 const domain = process.env.MAILGUN_DOMAIN;
 
-exports.handler = async (event, context, callback) => {
+exports.handler = (event, context, callback) => {
 
     console.log('formhandler');
     console.log('event.body', event.body);
@@ -19,20 +19,17 @@ exports.handler = async (event, context, callback) => {
       html: 'HTML'
     };
 
+    // mg.messages().send(data, (error, body) => {
 
-    const sender = await mg.messages().send(data, (error, body) => {
+    //     console.log('data:', data);
+    //     console.log('body:', body);
 
-        console.log('data:', data);
-        console.log('body:', body);
+    //     if (error) {
+    //         console.log('error:', error)
+    //         return console.log(error);
+    //     }
 
-        if (error) {
-            console.log('error:', error)
-            return console.log(error);
-        }
-
-    })
-
-    console.log('sender', sender)
+    // })
 
     return {
       statusCode: 200,
