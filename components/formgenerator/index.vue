@@ -105,30 +105,62 @@ export default {
 
         console.log('form submitted');
 
-        fetch('/.netlify/functions/formhandler', {
-            method: 'post',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.formValues)
-          }).then(function(response) {
 
-            console.log('response', response);
+        axios
+          .post(
+            '/.netlify/functions/formhandler',
+            this.formValues,
+            // {
+            //   headers: {
+            //     Authorization: `apikey ${mailChimpApiKey}`,
+            //   },
+            // }
+          )
+          .then(res => {
 
-            return response.json();
-          }).then(function(data) {
+            console.log('res', res);
 
-
-            console.log('data', data);
-
-
-            if(data.success) {
-              console.log('success > data', data);
-            } else {
-              console.log('failed');
+            return {
+              statusCode: 200,
+              body: JSON.stringify({ success: true })
             }
-          });
+          })
+          .catch(error => {
+
+            console.log('error', error);
+
+            return {
+              statusCode: 200,
+              body: JSON.stringify({ success: false })
+            }
+          }
+        );
+
+
+        // fetch('/.netlify/functions/formhandler', {
+        //     method: 'post',
+        //     headers: {
+        //       'Accept': 'application/json',
+        //       'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(this.formValues)
+        //   }).then(function(response) {
+
+        //     console.log('response', response);
+
+        //     return response.json();
+        //   }).then(function(data) {
+
+
+        //     console.log('data', data);
+
+
+        //     if(data.success) {
+        //       console.log('success > data', data);
+        //     } else {
+        //       console.log('failed');
+        //     }
+        //   });
 
       } else {
 
