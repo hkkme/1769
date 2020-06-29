@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
       from: 'Name <mailgun@mail.1769.eu>',
       to: 'zehnter.david@gmail.com',
       subject: '1769 form submit',
-      payload,
+      text: 'testing payload',
       html: 'HTML'
     };
 
