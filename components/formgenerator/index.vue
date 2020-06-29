@@ -1,43 +1,40 @@
 <template>
   <div class="from-generator">
-    <form
-      @submit.prevent="handleSubmit"
+    <div
+      v-for="(formItem, index) in formItems"
+      :key="index"
     >
+      <input
+        :label="formItem.label"
+        :name="formItem.id"
+        :placeholder="formItem.placeholder"
+        @input="onChange"
+        class="input-text"
+        type="input"
+        v-if="formItem.type === 'input'"
+      />
+      <textarea
+        :label="formItem.label"
+        :name="formItem.id"
+        :placeholder="formItem.placeholder"
+        :style="{ height: formItem.height + 'px' }"
+        @input="onChange"
+        class="input-textarea"
+        v-if="formItem.type === 'textArea'"
+      />
       <div
-        v-for="(formItem, index) in formItems"
-        :key="index"
-      >
-        <input
-          :label="formItem.label"
-          :name="formItem.id"
-          :placeholder="formItem.placeholder"
-          @input="onChange"
-          class="input-text"
-          type="input"
-          v-if="formItem.type === 'input'"
-        />
-        <textarea
-          :label="formItem.label"
-          :name="formItem.id"
-          :placeholder="formItem.placeholder"
-          :style="{ height: formItem.height + 'px' }"
-          @input="onChange"
-          class="input-textarea"
-          v-if="formItem.type === 'textArea'"
-        />
-        <div
-           class="input-note"
-           v-html="formItem.value"
-           v-if="formItem.type === 'note'"
-        />
-        <input
-          :value="formItem.value"
-          class="input-submit"
-          type="submit"
-          v-if="formItem.type === 'submit'"
-        />
-      </div>
-    </form>
+          class="input-note"
+          v-html="formItem.value"
+          v-if="formItem.type === 'note'"
+      />
+      <input
+        :value="formItem.value"
+        @click="submitForm"
+        class="input-submit"
+        type="submit"
+        v-if="formItem.type === 'submit'"
+      />
+    </div>
     <div
       :class="message && message.type"
       class="message"
@@ -100,11 +97,38 @@ export default {
 
       return formVerified;
     },
-    handleSubmit () {
+    submitForm() {
 
       if(this.verifyFormValues()) {
 
         console.log('form submitted');
+
+
+
+
+
+        // fetch('/.netlify/functions/signuphandler', {
+        //     method: 'post',
+        //     body: JSON.stringify({
+        //       signupEmail: this.signupEmail
+        //     })
+        //   }).then(function(response) {
+        //     return response.json();
+        //   }).then(function(data) {
+        //     if(data.success) {
+        //       setMessage(confirmationMessage,'blue');
+        //     } else {
+        //       setMessage(errorMessage,'red');
+        //     }
+        //   });
+
+
+
+
+
+        console.log(this.formValues, typeof this.formValues);
+
+
 
         fetch('/.netlify/functions/formhandler', {
             method: 'post',
@@ -112,12 +136,15 @@ export default {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(this.formValues)
+            body: JSON.stringify({
+              test: this.formValues,
+            }),
           }).then(function(response) {
 
             console.log('response', response);
 
             return response.json();
+
           }).then(function(data) {
 
 
