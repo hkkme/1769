@@ -1,12 +1,12 @@
 const mailgun = require('mailgun-js');
 const apiKey = process.env.MAILGUN_API_KEY;
 const domain = process.env.MAILGUN_DOMAIN;
-const url = process.env.MAILGUN_URL;
 
 exports.handler = async (event, context) => {
 
   try {
-    const mg = mailgun({ apiKey, domain, url });
+
+    const mg = mailgun({ apiKey, domain });
     const payload = JSON.parse(event.body);
 
     const data = {
