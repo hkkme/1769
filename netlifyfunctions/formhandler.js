@@ -17,18 +17,28 @@ exports.handler = async (event, context) => {
       html: 'HTML'
     };
 
-    console.log('data 1', data);
+    console.log('data', data);
 
 
     mg.messages().send(data, (error, body) => {
 
-        console.log('data 2', data);
+        console.log('data after send', data);
         console.log('body', body);
 
         if (error) {
             console.log('error:', error)
 
+          return {
+            statusCode: 200,
+            body: JSON.stringify({ success: false })
+          }
 
+        } else {
+
+          return {
+            statusCode: 200,
+            body: JSON.stringify({ success: true })
+          }
 
         }
 
@@ -36,10 +46,7 @@ exports.handler = async (event, context) => {
 
 
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ success: true })
-    }
+
 
   } catch (error) {
     console.log('error', error);
@@ -51,5 +58,3 @@ exports.handler = async (event, context) => {
   }
 
 }
-
-
