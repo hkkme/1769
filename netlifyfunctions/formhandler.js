@@ -7,46 +7,27 @@ exports.handler = async (event, context) => {
   try {
 
     const mg = mailgun({ apiKey, domain });
-    const payload = JSON.parse(event.body);
+    // const payload = JSON.parse(event.body);
 
     const data = {
       from: 'Name <mailgun@mail.1769.eu>',
       to: 'zehnter.david@gmail.com',
       subject: '1769 form submit',
-      text: 'testing payload',
+      text: 'testing text',
       html: 'HTML'
     };
 
     console.log('data', data);
 
-
     mg.messages().send(data, (error, body) => {
 
-        console.log('data after send', data);
-        console.log('body', body);
-
         if (error) {
-            console.log('error:', error)
-
-          return {
-            statusCode: 200,
-            body: JSON.stringify({ success: false })
-          }
-
-        } else {
-
-          return {
-            statusCode: 200,
-            body: JSON.stringify({ success: true })
-          }
-
+          console.log(error)
         }
 
+        console.log('body', body);
+
     })
-
-
-
-
 
   } catch (error) {
     console.log('error', error);
