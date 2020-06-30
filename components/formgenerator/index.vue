@@ -98,6 +98,8 @@
       },
       submitForm() {
 
+        let message = this.message;
+
         if(this.verifyFormValues()) {
 
           console.log('form submitted');
@@ -111,9 +113,9 @@
             return response.json();
           }).then(function(data) {
             if(data.success) {
-              this.message = { text: `thanks for your application. we'll get back to you asap!`, type: 'confirm' }
+              message = { text: `thanks for your application. we'll get back to you asap!`, type: 'confirm' }
             } else {
-              this.message = { text: `something went wrong! please try again, thanks`, type: 'warn' }
+              message = { text: `something went wrong! please try again, thanks`, type: 'warn' }
             }
           });
 
