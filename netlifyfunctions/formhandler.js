@@ -11,7 +11,17 @@ exports.handler = async (event, context) => {
     // const payload = JSON.parse(event.body);
 
 
-    var mg = mailgun.client({username: 'api', key: apiKey, url: 'https://api.eu.mailgun.net'});
+    var mg = mailgun.client({
+      username: 'api',
+      key: apiKey,
+      url: 'https://api.eu.mailgun.net'
+    });
+
+
+
+
+
+
 
     const data = {
       from: 'Name <mailgun@mail.1769.eu>',
@@ -22,13 +32,28 @@ exports.handler = async (event, context) => {
     };
 
     console.log('data', data);
+    console.log('mg', mg);
 
 
 
 
-    mg.messages.create('mail.1769.eu', data)
-    .then(msg => console.log('msg', msg))
-    .catch(err => console.log('err', err));
+    return mg.messages.create(domain, data)
+    .then(msg => {
+      console.log('msg', msg);
+
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ success: true })
+      }
+    })
+    .catch(err => {
+      console.log('err', err);
+
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ success: false })
+      }
+    });
 
 
     // mg.messages().send(data, (error, body) => {
@@ -42,10 +67,7 @@ exports.handler = async (event, context) => {
     // })
 
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ success: true })
-    }
+
 
   } catch (error) {
     console.log('error', error);
