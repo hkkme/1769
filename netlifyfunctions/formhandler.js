@@ -1,4 +1,3 @@
-// const mailgun = require('mailgun-js');
 var mailgun = require('mailgun.js');
 const apiKey = process.env.MAILGUN_API_KEY;
 const domain = process.env.MAILGUN_DOMAIN;
@@ -7,9 +6,8 @@ exports.handler = async (event, context) => {
 
   try {
 
-    // const mg = mailgun({ apiKey, domain });
-    // const payload = JSON.parse(event.body);
-
+    // const formData = JSON.parse(event.body);
+    const formData = event.body;
 
     var mg = mailgun.client({
       username: 'api',
@@ -17,29 +15,19 @@ exports.handler = async (event, context) => {
       url: 'https://api.eu.mailgun.net'
     });
 
-
-
-
-
-
-
     const data = {
       from: 'Name <mailgun@mail.1769.eu>',
       to: ['zehnter.david@gmail.com'],
       subject: '1769 form submit',
-      text: 'testing text',
-      html: '<h1>testing text</h1>'
+      text: formData,
+      html: `<p>${formData}</p>`
     };
 
     console.log('data', data);
-    console.log('mg', mg);
-
-
-
 
     return mg.messages.create(domain, data)
     .then(msg => {
-      console.log('msg', msg);
+      console.log(msg);
 
       return {
         statusCode: 200,
@@ -47,27 +35,13 @@ exports.handler = async (event, context) => {
       }
     })
     .catch(err => {
-      console.log('err', err);
+      console.log(err);
 
       return {
         statusCode: 200,
         body: JSON.stringify({ success: false })
       }
     });
-
-
-    // mg.messages().send(data, (error, body) => {
-
-    //     if (error) {
-    //       console.log(error)
-    //     }
-
-    //     console.log('body', body);
-
-    // })
-
-
-
 
   } catch (error) {
     console.log('error', error);
