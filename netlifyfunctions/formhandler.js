@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: false })
+      body: JSON.stringify({ success: true })
     }
 
   } catch (error) {
