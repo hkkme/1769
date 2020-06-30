@@ -232,7 +232,7 @@
       }
 
       .input-text {
-        font-size: 12px;
+        font-size: 16px;
         margin-bottom: 5px;
         max-width: none;
         min-width: none;
@@ -241,7 +241,7 @@
       }
 
       .input-textarea {
-        font-size: 12px;
+        font-size: 16px;
         margin-bottom: 5px;
         max-width: none;
         min-width: 100px;
@@ -259,7 +259,7 @@
       }
 
       .input-submit {
-        font-size: 14px;
+        font-size: 16px;
         width: 100%;
       }
 
@@ -268,7 +268,7 @@
         margin: 10px 0;
         width: 100%;
         font-family: 'Courier Prime', monospace;
-        font-size: 12px;
+        font-size: 16px;
       }
 
     }
