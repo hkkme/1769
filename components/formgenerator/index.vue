@@ -8,6 +8,7 @@
         :label="formItem.label"
         :name="formItem.id"
         :placeholder="formItem.placeholder"
+        :value="formValues[formItem.id] || ''"
         @input="inputChange"
         class="input-text"
         type="input"
@@ -18,6 +19,7 @@
         :name="formItem.id"
         :placeholder="formItem.placeholder"
         :style="{ height: formItem.height + 'px' }"
+        :value="formValues[formItem.id] || ''"
         @input="inputChange"
         class="input-textarea"
         v-if="formItem.type === 'textArea'"
@@ -105,13 +107,15 @@
 
         if(this.verifyFormValues()) {
 
-          console.log('form submitted');
+          let body = ''
+
+          Object.entries(this.formValues).map(val => {
+            body += `${val[0]}: ${val[1]}<br>`;
+          });
 
           fetch('/.netlify/functions/formhandler', {
             method: 'post',
-            body: JSON.stringify({
-              formValues: this.formValues
-            })
+            body,
           }).then(function(response) {
             return response.json();
           }).then(function(data) {
@@ -121,6 +125,8 @@
               setMessage({ text: `something went wrong! please try again, thanks`, type: 'warn' });
             }
           });
+
+          this.formValues = {};
 
         }
 
