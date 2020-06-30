@@ -6,8 +6,11 @@ exports.handler = async (event, context) => {
 
   try {
 
-    const mg = mailgun({ apiKey, domain });
+    // const mg = mailgun({ apiKey, domain });
     // const payload = JSON.parse(event.body);
+
+
+    var mg = mailgun.client({username: 'api', key: apiKey, url: 'https://api.eu.mailgun.net'});
 
     const data = {
       from: 'Name <mailgun@mail.1769.eu>',
