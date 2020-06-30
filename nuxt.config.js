@@ -40,7 +40,7 @@ export default {
   generate: {
     fallback: true,
     routes: async () => {
-      const routes = ['/navmap','/navmob','/','/home','/lab','/us','/host','/tech','/offers','/signup','/touch','/imprint','/showerloop','/testform'];
+      const routes = ['/navmap','/navmob','/','/home','/lab','/us','/host','/tech','/offers','/signup','/touch','/imprint','/showerloop','/dronecoria'];
       return routes;
     },
   },
