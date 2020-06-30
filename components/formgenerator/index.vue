@@ -167,7 +167,6 @@
       color: black;
       font-family: 'Courier Prime', monospace;
       font-size: 20px;
-      height: 400px;
       margin-bottom: 10px;
       max-width: 700px;
       min-width: 700px;
@@ -221,6 +220,55 @@
 
       &.confirm {
         color: $blue;
+      }
+
+    }
+
+    @media only screen and (max-width: 1300px) {
+
+      .from-generator {
+        margin: 20px auto 100px auto;
+        width: 100%;
+      }
+
+      .input-text {
+        font-size: 12px;
+        margin-bottom: 5px;
+        max-width: none;
+        min-width: none;
+        padding: 5px;
+        width: 100%;
+      }
+
+      .input-textarea {
+        font-size: 12px;
+        margin-bottom: 5px;
+        max-width: none;
+        min-width: 100px;
+        padding: 5px;
+        text-transform: lowercase;
+        width: 100%;
+      }
+
+      .input-note {
+        font-family: 'Courier Prime', monospace;
+        font-size: 10px;
+        padding: 0 5px;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+
+      .input-submit {
+        font-size: 14px;
+        width: 100%;
+      }
+
+      .message {
+        padding: 5px;
+        margin: 10px 0;
+        width: 100%;
+        font-family: 'Courier Prime', monospace;
+        font-size: 12px;
       }
 
     }
