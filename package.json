@@ -19,6 +19,7 @@
     "d3": "^5.15.1",
     "dotenv": "^8.2.0",
     "mailgun-js": "^0.22.0",
+    "mailgun.js": "^2.0.1",
     "nuxt": "2.12.1",
     "prismic-javascript": "^2.7.1",
     "vue-carousel": "^0.18.0",
