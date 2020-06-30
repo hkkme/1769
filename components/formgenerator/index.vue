@@ -43,6 +43,8 @@
 </template>
 
 <script>
+  import ValidationService from '~/services/validationService';
+
   export default {
     name: 'testform',
     created() {
@@ -65,24 +67,57 @@
       inputChange(event) {
         this.formValues[event.target.name] = event.target.value;
       },
+      verifyFormValues() {
+        const missing = [];
+        let emailValid = false;
+        let formVerified = false;
+
+        this.formItems.map(formItem => {
+
+          if(formItem.id === 'email' && ValidationService.validateEmail(this.formValues[formItem.id])) {
+            emailValid = true;
+          }
+
+          if(formItem.required && (this.formValues[formItem.id] === '' || this.formValues[formItem.id] === undefined)) {
+            missing.push(formItem.label);
+          }
+
+        })
+
+        if(missing.length > 0) {
+          this.message = { text: `form incomplete: ${missing.join(', ')}`, type: 'warn' }
+        } else if (emailValid === false) {
+          this.message = { text: `email not valid!`, type: 'warn' }
+
+        } else {
+          formVerified = true;
+          this.message = null;
+        }
+
+        return formVerified;
+      },
       submitForm() {
 
+        if(this.verifyFormValues()) {
 
-        fetch('/.netlify/functions/formhandler', {
-          method: 'post',
-          body: JSON.stringify({
-            formValues: this.formValues
-          })
-        }).then(function(response) {
-          return response.json();
-        }).then(function(data) {
-          if(data.success) {
-            console.log('success');
-          } else {
-            console.log('no success');
-          }
-        });
+          console.log('form submitted');
 
+          fetch('/.netlify/functions/formhandler', {
+            method: 'post',
+            body: JSON.stringify({
+              formValues: this.formValues
+            })
+          }).then(function(response) {
+            return response.json();
+          }).then(function(data) {
+            if(data.success) {
+              this.message = { text: `thanks for your application. we'll get back to you asap!`, type: 'confirm' }
+            } else {
+              this.message = { text: `something went wrong! please try again, thanks`, type: 'warn' }
+            }
+          });
+
+        }
 
       },
 
@@ -172,7 +207,7 @@
       }
 
       &.confirm {
-        color: green;
+        color: $blue;
       }
 
     }
