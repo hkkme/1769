@@ -29,6 +29,12 @@ exports.handler = async (event, context) => {
 
     })
 
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ success: false })
+    }
+
   } catch (error) {
     console.log('error', error);
 
