@@ -14,23 +14,31 @@ exports.handler = async (event, context) => {
 
     const data = {
       from: 'Name <mailgun@mail.1769.eu>',
-      to: 'zehnter.david@gmail.com',
+      to: ['zehnter.david@gmail.com'],
       subject: '1769 form submit',
       text: 'testing text',
-      html: 'HTML'
+      html: '<h1>testing text</h1>'
     };
 
     console.log('data', data);
 
-    mg.messages().send(data, (error, body) => {
 
-        if (error) {
-          console.log(error)
-        }
 
-        console.log('body', body);
 
-    })
+    mg.messages.create('mail.1769.eu', data)
+    .then(msg => console.log('msg', msg))
+    .catch(err => console.log('err', err));
+
+
+    // mg.messages().send(data, (error, body) => {
+
+    //     if (error) {
+    //       console.log(error)
+    //     }
+
+    //     console.log('body', body);
+
+    // })
 
 
     return {
