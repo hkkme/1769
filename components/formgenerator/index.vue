@@ -96,9 +96,12 @@
 
         return formVerified;
       },
+      setMessage(message) {
+        this.message = message;
+      },
       submitForm() {
 
-        let message = this.message;
+        const setMessage = this.setMessage;
 
         if(this.verifyFormValues()) {
 
@@ -113,9 +116,9 @@
             return response.json();
           }).then(function(data) {
             if(data.success) {
-              message = { text: `thanks for your application. we'll get back to you asap!`, type: 'confirm' }
+              setMessage({ text: `thanks for your application. we'll get back to you asap!`, type: 'confirm' });
             } else {
-              message = { text: `something went wrong! please try again, thanks`, type: 'warn' }
+              setMessage({ text: `something went wrong! please try again, thanks`, type: 'warn' });
             }
           });
 
