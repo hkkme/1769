@@ -5,6 +5,11 @@
       :key="index"
     >
       <input
+        :value="formName"
+        name="formName"
+        type="hidden"
+      />
+      <input
         :label="formItem.label"
         :name="formItem.id"
         :placeholder="formItem.placeholder"
