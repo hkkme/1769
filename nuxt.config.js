@@ -40,7 +40,23 @@ export default {
   generate: {
     fallback: true,
     routes: async () => {
-      const routes = ['/navmap','/navmob','/','/home','/lab','/us','/host','/tech','/offers','/signup','/touch','/imprint','/showerloop','/dronecoria'];
+      const routes = [
+        '/navmap',
+        '/navmob',
+        '/',
+        '/home',
+        '/lab',
+        '/us',
+        '/host',
+        '/tech',
+        '/offers',
+        '/signup',
+        '/touch',
+        '/imprint',
+        '/showerloop',
+        '/dronecoria',
+        '/masdeflandi-draft-5c116q'
+      ];
       return routes;
     },
   },
@@ -74,8 +90,15 @@ export default {
     // '@/modules/static',
     // '@/modules/crawler',
     '@nuxtjs/prismic',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/recaptcha',
+    '@nuxtjs/sitemap',
   ],
+  recaptcha: {
+    hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
+    siteKey: '6LdWJa4ZAAAAAJbLIcMzHJqyHRLZSoSTtgpMEAoQ', // Site key for requests
+    version: 2, // Version
+    size: 'normal' // Size: 'compact', 'normal', 'invisible' (v2)
+  },
   router: {
     trailingSlash: false,
   },

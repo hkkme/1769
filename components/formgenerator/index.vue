@@ -1,42 +1,51 @@
 <template>
   <div class="from-generator">
-    <div
-      v-for="(formItem, index) in formItems"
-      :key="index"
+    <form
+      @submit.prevent="submitForm"
     >
-      <input
-        :label="formItem.label"
-        :name="formItem.id"
-        :placeholder="formItem.placeholder"
-        :value="formValues[formItem.id] || ''"
-        @input="inputChange"
-        class="input-text"
-        type="input"
-        v-if="formItem.type === 'input'"
-      />
-      <textarea
-        :label="formItem.label"
-        :name="formItem.id"
-        :placeholder="formItem.placeholder"
-        :style="{ height: formItem.height + 'px' }"
-        :value="formValues[formItem.id] || ''"
-        @input="inputChange"
-        class="input-textarea"
-        v-if="formItem.type === 'textArea'"
-      />
       <div
-          class="input-note"
-          v-html="formItem.value"
-          v-if="formItem.type === 'note'"
-      />
-      <input
-        :value="formItem.value"
-        @click="submitForm"
-        class="input-submit"
-        type="submit"
-        v-if="formItem.type === 'submit'"
-      />
-    </div>
+        v-for="(formItem, index) in formItems"
+        :key="index"
+      >
+        <input
+          :label="formItem.label"
+          :name="formItem.id"
+          :placeholder="formItem.placeholder"
+          :value="formValues[formItem.id] || ''"
+          @input="inputChange"
+          class="input-text"
+          type="input"
+          v-if="formItem.type === 'input'"
+        />
+        <textarea
+          :label="formItem.label"
+          :name="formItem.id"
+          :placeholder="formItem.placeholder"
+          :style="{ height: formItem.height + 'px' }"
+          :value="formValues[formItem.id] || ''"
+          @input="inputChange"
+          class="input-textarea"
+          v-if="formItem.type === 'textArea'"
+        />
+        <div
+            class="input-note"
+            v-html="formItem.value"
+            v-if="formItem.type === 'note'"
+        />
+        <recaptcha
+          @error="onError"
+          @expired="onExpired"
+          @success="onSuccess"
+          v-if="formItem.type === 'reCAPTCHA'"
+        />
+        <input
+          :value="formItem.value"
+          class="input-submit"
+          type="submit"
+          v-if="formItem.type === 'submit'"
+        />
+      </div>
+    </form>
     <div
       :class="message && message.type"
       class="message"
@@ -63,7 +72,7 @@
       return {
         formItems: [],
         formValues: {},
-        message: null
+        message: null,
       }
     },
     methods: {
@@ -102,13 +111,54 @@
       setMessage(message) {
         this.message = message;
       },
-      submitForm() {
+      onError(error) {
+        console.log('error', error);
+      },
+      onSuccess(token) {
+        // console.log('token', token);
+      },
+      onExpired() {
+        console.log('expired');
+      },
+      async submitForm() {
 
         const setMessage = this.setMessage;
+        const callFormHandler = this.callFormHandler;
 
         if(this.verifyFormValues()) {
 
-          let body = ''
+          if(this.formItems.some(key => key.type === 'reCAPTCHA')) {
+
+            try {
+
+              const token = await this.$recaptcha.getResponse()
+              // console.log('token', token);
+              callFormHandler();
+              await this.$recaptcha.reset();
+
+            } catch (error) {
+
+              console.log(error);
+              setMessage({ text: `something went wrong! check captcha and please try again`, type: 'warn' });
+
+            }
+
+          } else if (this.verifyFormValues()) {
+
+            callFormHandler();
+
+          } else {
+
+            setMessage({ text: `something went wrong! please try again`, type: 'warn' });
+
+          }
+
+        }
+
+      },
+      callFormHandler() {
+
+          let body = '';
 
           Object.entries(this.formValues).map(val => {
             body += `${val[0]}: ${val[1]}<br>`;
@@ -129,12 +179,7 @@
             }
           });
 
-          this.formValues = {};
-
-        }
-
-      },
-
+      }
     }
   };
 </script>
