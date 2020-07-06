@@ -158,6 +158,7 @@
       },
       callFormHandler() {
 
+          const setMessage = this.setMessage;
           let body = '';
 
           Object.entries(this.formValues).map(val => {
