@@ -146,7 +146,7 @@
             } catch (error) {
 
               console.log(error);
-              setMessage({ text: `something went wrong! check captcha and please try again`, type: 'warn' });
+              setMessage({ text: `something went wrong! please check captcha and try again`, type: 'warn' });
 
             }
 
@@ -205,9 +205,9 @@
             return response.json();
           }).then(function(data) {
             if(data.success) {
-              setMessage('thanks for signing up','blue');
+              setMessage({ text: `thanks for signing up`, type: 'confirm' });
             } else {
-              setMessage('something went wrong! please try again','red');
+              setMessage({ text: `something went wrong! please try again`, type: 'warn' });
             }
           });
 
