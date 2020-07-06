@@ -94,9 +94,9 @@ export default {
     '@nuxtjs/sitemap',
   ],
   recaptcha: {
-    hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
-    siteKey: process.env.RECAPTCHA_KEY, // Site key for requests
-    version: 2, // Version
+    hideBadge: false, // hide badge element (v3 & v2 via size=invisible)
+    siteKey: process.env.RECAPTCHA_KEY, // public key
+    version: 2, // version
     size: 'normal' // Size: 'compact', 'normal', 'invisible' (v2)
   },
   router: {

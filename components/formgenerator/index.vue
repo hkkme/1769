@@ -123,6 +123,7 @@
       async submitForm() {
 
         const setMessage = this.setMessage;
+        const callSignupHandler = this.callSignupHandler;
         const callFormHandler = this.callFormHandler;
 
         if(this.verifyFormValues()) {
@@ -133,7 +134,13 @@
 
               const token = await this.$recaptcha.getResponse()
               // console.log('token', token);
-              callFormHandler();
+
+              if(this.formValues.formName === 'signup') {
+                callSignupHandler();
+              } else {
+                callFormHandler();
+              }
+
               await this.$recaptcha.reset();
 
             } catch (error) {
@@ -145,7 +152,11 @@
 
           } else if (this.verifyFormValues()) {
 
-            callFormHandler();
+              if(this.formValues.formName === 'signup') {
+                callSignupHandler();
+              } else {
+                callFormHandler();
+              }
 
           } else {
 
@@ -177,6 +188,26 @@
               setMessage({ text: `thanks for your application. we'll get back to you asap!`, type: 'confirm' });
             } else {
               setMessage({ text: `something went wrong! please try again`, type: 'warn' });
+            }
+          });
+
+      },
+      callSignupHandler() {
+
+        const setMessage = this.setMessage;
+
+        fetch('/.netlify/functions/signuphandler', {
+            method: 'post',
+            body: JSON.stringify({
+              signupEmail: this.formValues.email,
+            })
+          }).then(response => {
+            return response.json();
+          }).then(function(data) {
+            if(data.success) {
+              setMessage('thanks for signing up','blue');
+            } else {
+              setMessage('something went wrong! please try again','red');
             }
           });
 
