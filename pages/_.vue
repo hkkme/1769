@@ -210,7 +210,7 @@ export default {
     color: white;
     display: none;
     font-family: 'Courier Prime', monospace;
-    height: 30px;
+    height: 34px;
     padding: 5px;
     position: fixed;
     text-align: center;
@@ -228,7 +228,7 @@ export default {
       font-family: 'Courier Prime', monospace;
       font-size: 16px;
       margin: 0 2px;
-      padding: 5px;
+      padding: 3px;
 
       &:hover {
         background-color: blue;
