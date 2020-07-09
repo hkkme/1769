@@ -55,7 +55,7 @@ export default {
         '/imprint',
         '/showerloop',
         '/dronecoria',
-        '/masdeflandi-draft-5c116q'
+        '/masdeflandi'
       ];
       return routes;
     },
