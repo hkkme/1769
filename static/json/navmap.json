@@ -1,20 +1,14 @@
 {
   "nodes": [
     { "id": "hi", "label": "hi", "slug": "/", "color": "#eee" },
-    { "id": "lab", "label": "lab", "slug": "/lab", "color": "#eee" },
-    { "id": "us", "label": "us", "slug": "/us", "color": "#eee" },
-    { "id": "tech", "label": "tech", "slug": "/tech", "color": "#eee" },
-    { "id": "offers", "label": "offers", "slug": "/offers", "color": "#eee" },
+    { "id": "labs", "label": "labs", "slug": "/labs", "color": "#eee" },
     { "id": "touch", "label": "@", "slug": "/touch", "color": "#eee" },
     { "id": "signup", "label": "signup", "slug": "/signup", "color": "#eee" },
     { "id": "imprint", "label": "imprint", "slug": "/imprint", "color": "#eee" }
   ],
   "links": [
-    { "source": "hi", "target": "lab", "value": 1 },
-    { "source": "hi", "target": "us", "value": 1 },
+    { "source": "hi", "target": "labs", "value": 1 },
     { "source": "hi", "target": "signup", "value": 1 },
-    { "source": "lab", "target": "tech", "value": 1 },
-    { "source": "lab", "target": "offers", "value": 1 },
     { "source": "hi", "target": "imprint", "value": 1 },
     { "source": "signup", "target": "touch", "value": 1 }
   ]
