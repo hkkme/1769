@@ -45,7 +45,6 @@ export default {
         '/navmob',
         '/',
         '/home',
-        '/labs',
         '/1769',
         '/me',
         '/signup',
