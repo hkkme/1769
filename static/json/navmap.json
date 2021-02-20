@@ -3,7 +3,6 @@
     { "id": "hi", "label": "hi", "slug": "/", "color": "#eee" },
     { "id": "me", "label": "me", "slug": "/me", "color": "#eee" },
     { "id": "lab", "label": "lab", "slug": "/lab", "color": "#eee" },
-    { "id": "service", "label": "service", "slug": "/service", "color": "#eee" },
     { "id": "touch", "label": "@", "slug": "/touch", "color": "#eee" },
     { "id": "signup", "label": "signup", "slug": "/signup", "color": "#eee" },
     { "id": "imprint", "label": "imprint", "slug": "/imprint", "color": "#eee" }
