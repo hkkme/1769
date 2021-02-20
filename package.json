@@ -21,7 +21,9 @@
     "dotenv": "^8.2.0",
     "mailgun.js": "^2.0.1",
     "nuxt": "2.12.1",
-    "prismic-javascript": "^2.7.1",
+    "prismic-dom": "^2.2.5",
+    "prismic-javascript": "^3.0.2",
+    "prismic-vue": "^2.0.1",
     "vue-carousel": "^0.18.0",
     "vue-form-generator": "^2.3.4"
   },
