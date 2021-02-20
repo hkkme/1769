@@ -10,7 +10,6 @@
   ],
   "links": [
     { "source": "hi", "target": "me", "value": 1 },
-    { "source": "hi", "target": "service", "value": 1 },
     { "source": "hi", "target": "lab", "value": 1 },
     { "source": "hi", "target": "signup", "value": 1 },
     { "source": "hi", "target": "imprint", "value": 1 },
