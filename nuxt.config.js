@@ -45,16 +45,15 @@ export default {
         '/navmob',
         '/',
         '/home',
-        '/lab',
         '/me',
-        '/service',
+        '/lab',
+        '/dev',
         '/signup',
         '/touch',
         '/imprint',
         '/or',
         '/showerloop',
-        '/dronecoria',
-        '/masdeflandi'
+        '/dronecoria'
       ];
       return routes;
     },
