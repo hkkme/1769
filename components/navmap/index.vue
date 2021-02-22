@@ -88,7 +88,7 @@
 
         this.graphLayout = d3
         .forceSimulation(this.navmapJson.nodes)
-        .force("charge", d3.forceManyBody().strength(-2500)) // change here for distance between nodes
+        .force("charge", d3.forceManyBody().strength(-1300)) // change here for distance between nodes
         .force("center", d3.forceCenter(this.width / 2, this.height / 2 - 150))
         .force("link", d3.forceLink(this.navmapJson.links)
           .id(function(d) {return d.id; })

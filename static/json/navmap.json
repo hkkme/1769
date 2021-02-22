@@ -3,6 +3,7 @@
     { "id": "hi", "label": "hi", "slug": "/", "color": "#eee" },
     { "id": "me", "label": "me", "slug": "/me", "color": "#eee" },
     { "id": "lab", "label": "lab", "slug": "/lab", "color": "#eee" },
+    { "id": "or", "label": "or", "slug": "/or", "color": "#eee" },
     { "id": "touch", "label": "@", "slug": "/touch", "color": "#eee" },
     { "id": "signup", "label": "signup", "slug": "/signup", "color": "#eee" },
     { "id": "imprint", "label": "imprint", "slug": "/imprint", "color": "#eee" }
@@ -12,6 +13,7 @@
     { "source": "hi", "target": "lab", "value": 1 },
     { "source": "hi", "target": "signup", "value": 1 },
     { "source": "hi", "target": "imprint", "value": 1 },
+    { "source": "lab", "target": "or", "value": 1 },
     { "source": "signup", "target": "touch", "value": 1 }
   ]
 }
