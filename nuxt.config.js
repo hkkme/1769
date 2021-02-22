@@ -47,7 +47,6 @@ export default {
         '/home',
         '/me',
         '/lab',
-        '/dev',
         '/signup',
         '/touch',
         '/imprint',
