@@ -4,7 +4,6 @@
     { "id": "lab", "label": "lab", "slug": "/lab", "color": "#eee" },
     { "id": "or", "label": "or", "slug": "/or", "color": "#eee" },
     { "id": "aguaponics", "label": "aguaponics", "slug": "/aguaponics", "color": "#eee" },
-    { "id": "david", "label": "david", "slug": "/david", "color": "#eee" },
     { "id": "team", "label": "team", "slug": "/team", "color": "#eee" },
     { "id": "partners", "label": "partners", "slug": "/partners", "color": "#eee" },
     { "id": "touch", "label": "@", "slug": "/touch", "color": "#eee" },
