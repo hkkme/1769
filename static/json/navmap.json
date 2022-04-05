@@ -4,6 +4,7 @@
     { "id": "lab", "label": "lab", "slug": "/lab", "color": "#eee" },
     { "id": "or", "label": "or", "slug": "/or", "color": "#eee" },
     { "id": "aguaponics", "label": "aguaponics", "slug": "/aguaponics", "color": "#eee" },
+    { "id": "wormfarm", "label": "wormfarm", "slug": "/wormfarm", "color": "#eee" },
     { "id": "team", "label": "team", "slug": "/team", "color": "#eee" },
     { "id": "partners", "label": "partners", "slug": "/partners", "color": "#eee" },
     { "id": "touch", "label": "@", "slug": "/touch", "color": "#eee" },
@@ -18,6 +19,7 @@
     { "source": "hi", "target": "signup", "value": 1 },
     { "source": "hi", "target": "imprint", "value": 1 },
     { "source": "or", "target": "aguaponics", "value": 1 },
+    { "source": "or", "target": "wormfarm", "value": 1 },
     { "source": "signup", "target": "touch", "value": 1 }
   ]
 }
