@@ -37,6 +37,7 @@
         this.createMap();
       },
       goTo(slug) {
+        // console.log(slug);
         this.$router.push(slug);
       },
       createMap() {
@@ -161,7 +162,7 @@
   /* @import '~assets/scss/main.scss'; */
 
   .navmap {
-    height: calc(100vh - 10px);
+    height: calc(100vh - 35px);
     margin: 0 0 0 0;
     width: 100vw;
   }
