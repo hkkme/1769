@@ -58,7 +58,7 @@
         .enter()
         .append("line")
         .attr("stroke", "#eee")
-        .attr("stroke-width", "8px");
+        .attr("stroke-width", "6px");
 
         this.node = container
         .append("g")
@@ -71,7 +71,7 @@
 
         this.node
         .append("circle")
-        .attr("r", 24)
+        .attr("r", 16)
         .attr("fill", function(d) {
           return d.color;
         })
@@ -88,7 +88,7 @@
 
         this.graphLayout = d3
         .forceSimulation(this.navmapJson.nodes)
-        .force("charge", d3.forceManyBody().strength(-1300)) // change here for distance between nodes
+        .force("charge", d3.forceManyBody().strength(-600)) // change here for distance between nodes
         .force("center", d3.forceCenter(this.width / 2, this.height / 2 - 150))
         .force("link", d3.forceLink(this.navmapJson.links)
           .id(function(d) {return d.id; })
@@ -173,7 +173,7 @@
 
   .node circle {
     cursor: pointer;
-    stroke-width: 5px;
+    stroke-width: 3px;
     stroke: #fff;
   }
 
@@ -185,7 +185,7 @@
   .node-text {
     cursor: pointer;
     font-family: 'Courier Prime', monospace;
-    font-size: 20px;
+    font-size: 16px;
     user-select: none;
   }
 
