@@ -1,16 +1,16 @@
 {
   "nodes": [
-    { "id": "aguaponics", "label": "aguaponics", "slug": "/aguaponics", "color": "#eee" },
-    { "id": "concierge", "label": "concierge", "slug": "/concierge", "color": "#eee" },
     { "id": "hi", "label": "hi", "slug": "/", "color": "#eee" },
-    { "id": "imprint", "label": "imprint", "slug": "/imprint", "color": "#eee" },
     { "id": "lab", "label": "lab", "slug": "/lab", "color": "#eee" },
     { "id": "or", "label": "or", "slug": "/or", "color": "#eee" },
+    { "id": "team", "label": "team", "slug": "/team", "color": "#eee" },
     { "id": "partners", "label": "partners", "slug": "/partners", "color": "#eee" },
     { "id": "signup", "label": "signup", "slug": "/signup", "color": "#eee" },
-    { "id": "team", "label": "team", "slug": "/team", "color": "#eee" },
     { "id": "touch", "label": "@", "slug": "/touch", "color": "#eee" },
-    { "id": "wormfarm", "label": "wormfarm", "slug": "/wormfarm", "color": "#eee" }
+    { "id": "concierge", "label": "concierge", "slug": "/concierge", "color": "#eee" },
+    { "id": "aguaponics", "label": "aguaponics", "slug": "/aguaponics", "color": "#eee" },
+    { "id": "wormfarm", "label": "wormfarm", "slug": "/wormfarm", "color": "#eee" },
+    { "id": "imprint", "label": "imprint", "slug": "/imprint", "color": "#eee" }
   ],
   "links": [
     { "source": "hi", "target": "imprint", "value": 1 },
