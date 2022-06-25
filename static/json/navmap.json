@@ -20,6 +20,6 @@
     { "source": "lab", "target": "xponix", "value": 1 },
     { "source": "lab", "target": "or", "value": 1 },
     { "source": "lab", "target": "worms", "value": 1 },
-    { "source": "signup", "target": "touch", "value": 1 },
+    { "source": "signup", "target": "touch", "value": 1 }
   ]
 }
