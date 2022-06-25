@@ -8,7 +8,7 @@
     { "id": "signup", "label": "signup", "slug": "/signup", "color": "#eee" },
     { "id": "touch", "label": "@", "slug": "/touch", "color": "#eee" },
     { "id": "concierge", "label": "concierge", "slug": "/concierge", "color": "#eee" },
-    { "id": "aguaponics", "label": "aguaponics", "slug": "/aguaponics", "color": "#eee" },
+    { "id": "xponix", "label": "xponix", "slug": "/xponix", "color": "#eee" },
     { "id": "wormfarm", "label": "wormfarm", "slug": "/wormfarm", "color": "#eee" },
     { "id": "imprint", "label": "imprint", "slug": "/imprint", "color": "#eee" }
   ],
@@ -18,7 +18,7 @@
     { "source": "hi", "target": "partners", "value": 1 },
     { "source": "hi", "target": "signup", "value": 1 },
     { "source": "hi", "target": "team", "value": 1 },
-    { "source": "lab", "target": "aguaponics", "value": 1 },
+    { "source": "lab", "target": "xponix", "value": 1 },
     { "source": "lab", "target": "or", "value": 1 },
     { "source": "lab", "target": "wormfarm", "value": 1 },
     { "source": "signup", "target": "touch", "value": 1 },
