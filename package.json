@@ -20,7 +20,7 @@
     "d3": "^5.15.1",
     "dotenv": "^8.2.0",
     "mailgun.js": "^2.0.1",
-    "nuxt": "2.12.1",
+    "nuxt": "2.15.8",
     "prismic-dom": "^2.2.5",
     "prismic-javascript": "^3.0.2",
     "prismic-vue": "^2.0.1",
